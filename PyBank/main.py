@@ -33,8 +33,9 @@ with open(csvpath, mode = 'r', encoding = 'utf-8') as bank_info:
         csvreader = csv.reader(bank_info, delimiter=',')
 
         # Skip the header row
-        next(csvreader)
+        csv_header = next(csvreader)
         
+        # loop over every row in the csv file
         for row in csvreader:
                 # update the net total by adding the profit/loss of that month
                 net_total += int(row[1])
@@ -80,7 +81,7 @@ average_change = total_change / (month_counter - 1)
 print(f"Average Change: ${average_change:.2f}")
 
 # Using the min and max changes found earlier, retrieve the months on which those changes occurred by tapping the change_month_dict dictionary
-## DANGER!!! This method only works if there is only a single instance of maximum and minimum change
+## DANGER!!! This method only works if there is only a single instance of the maximum and minimum change
 month_max_change = change_month_dict[max_change]
 month_min_change = change_month_dict[min_change]
 
