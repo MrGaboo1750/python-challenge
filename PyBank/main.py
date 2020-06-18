@@ -40,7 +40,7 @@ with open(csvpath, mode = 'r', encoding = 'utf-8') as bank_info:
                 # update the net total by adding the profit/loss of that month
                 net_total += int(row[1])
 
-                # The difference cannot be calculated for the first row since a previous row does not exist. Remember that the month counter starts at 0 and refers to the first line, and so we need to start the calculation when the month counter is 1 or greater
+                # The difference cannot be calculated for the first row since a previous row does not exist with which we can calculate a difference. Remember that the month counter starts at 0 and refers to the first line, and so we need to start the calculation when the month counter is 1 or greater
                 if month_counter >= 1:
                         # Calculate the difference between the current month's profit/loss and the previous month's. If the previous month is 
                         monthly_difference = int(row[1]) - previous_amount
